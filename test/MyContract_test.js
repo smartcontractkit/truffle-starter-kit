@@ -83,7 +83,7 @@ contract('MyContract', accounts => {
 
   describe('#fulfill', () => {
     const expected = 50000
-    const response = web3.utils.padRight(web3.utils.toHex(expected), 64)
+    const response = web3.utils.padLeft(web3.utils.toHex(expected), 64)
     let request
 
     beforeEach(async () => {
@@ -111,8 +111,8 @@ contract('MyContract', accounts => {
     it('records the data given to it by the oracle', async () => {
       const currentPrice = await cc.data.call()
       assert.equal(
-        web3.utils.toHex(currentPrice),
-        web3.utils.padRight(expected, 64),
+        web3.utils.padLeft(web3.utils.toHex(currentPrice), 64),
+        web3.utils.padLeft(expected, 64),
       )
     })
 
