@@ -1,6 +1,6 @@
 /* eslint-disable @typescript-eslint/no-var-requires */
 const { oracle } = require('@chainlink/test-helpers')
-const { expectRevert, time } = require('openzeppelin-test-helpers')
+const { expectRevert, time } = require('@openzeppelin/test-helpers')
 
 contract('MyContract', accounts => {
   const { LinkToken } = require('@chainlink/contracts/truffle/v0.4/LinkToken')
