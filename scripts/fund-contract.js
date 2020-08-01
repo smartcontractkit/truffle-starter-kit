@@ -1,5 +1,5 @@
 const MyContract = artifacts.require('MyContract')
-const { LinkToken } = require('@chainlink/contracts/truffle/v0.4/LinkToken')
+const LinkTokenInterface = artifacts.require('LinkTokenInterface')
 
 /*
   This script is meant to assist with funding the requesting
@@ -11,10 +11,14 @@ const { LinkToken } = require('@chainlink/contracts/truffle/v0.4/LinkToken')
 const payment = process.env.TRUFFLE_CL_BOX_PAYMENT || '1000000000000000000'
 
 module.exports = async callback => {
-  const mc = await MyContract.deployed()
-  const tokenAddress = await mc.getChainlinkToken()
-  const token = await LinkToken.at(tokenAddress)
-  console.log('Funding contract:', mc.address)
-  const tx = await token.transfer(mc.address, payment)
-  callback(tx.tx)
+  try {
+    const mc = await MyContract.deployed()
+    const tokenAddress = await mc.getChainlinkToken()
+    const token = await LinkTokenInterface.at(tokenAddress)
+    console.log('Funding contract:', mc.address)
+    const tx = await token.transfer(mc.address, payment)
+    callback(tx.tx)
+  } catch (err) {
+    callback(err)
+  }
 }
