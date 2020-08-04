@@ -1,7 +1,7 @@
-pragma solidity 0.4.24;
+pragma solidity 0.6.6;
 
-import "@chainlink/contracts/src/v0.4/ChainlinkClient.sol";
-import "openzeppelin-solidity/contracts/ownership/Ownable.sol";
+import "@chainlink/contracts/src/v0.6/ChainlinkClient.sol";
+import "@openzeppelin/contracts/access/Ownable.sol";
 
 /**
  * @title MyContract is an example contract which requests data from
