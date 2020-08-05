@@ -1,24 +1,23 @@
-const MyContract = artifacts.require('MyContract')
-const LinkTokenInterface = artifacts.require('LinkTokenInterface')
+// npx truffle exec scripts/fund-contract.js --network live
 
-/*
-  This script is meant to assist with funding the requesting
-  contract with LINK. It will send 1 LINK to the requesting
-  contract for ease-of-use. Any extra LINK present on the contract
-  can be retrieved by calling the withdrawLink() function.
-*/
+const { ethers } = require("ethers");
+const fs = require("fs");
+const MyContract = artifacts.require("MyContract");
+const payment = process.env.TRUFFLE_CL_BOX_PAYMENT || "1000000000000000000";
+let raw = fs.readFileSync("../abis/LinkToken.json");
+const ABI = JSON.parse(raw);
 
-const payment = process.env.TRUFFLE_CL_BOX_PAYMENT || '1000000000000000000'
+module.exports = async function(callback) {
+  const provider = new ethers.providers.JsonRpcProvider(process.env.RPC_URL);
+  // Hard coded for Ropsten....
+  const linkAddress = "0x20fE562d797A42Dcb3399062AE9546cd06f63280";
+  const wallet = new ethers.Wallet(process.env.PRIVATE_KEY, provider);
+  const linkContract = new ethers.Contract(linkAddress, ABI, wallet);
+  const mc = await MyContract.deployed();
+  console.log(mc.address);
 
-module.exports = async callback => {
-  try {
-    const mc = await MyContract.deployed()
-    const tokenAddress = await mc.getChainlinkToken()
-    const token = await LinkTokenInterface.at(tokenAddress)
-    console.log('Funding contract:', mc.address)
-    const tx = await token.transfer(mc.address, payment)
-    callback(tx.tx)
-  } catch (err) {
-    callback(err)
-  }
-}
+  await linkContract.transfer(mc.address, payment).then(function(tx) {
+    console.log(tx);
+  });
+  callback();
+};
