@@ -20,7 +20,7 @@
     "@truffle/hdwallet-provider": "^1.0.40"
   },
   "devDependencies": {
-    "@chainlink/belt": "^0.0.1",
+    "@chainlink/belt": "^0.0.3",
     "@chainlink/test-helpers": "0.0.5",
     "@openzeppelin/test-helpers": "^0.5.6",
     "chai": "^4.2.0",
