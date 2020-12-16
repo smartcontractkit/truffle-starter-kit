@@ -40,6 +40,13 @@ For deploying to live networks, Truffle will use `truffle-hdwallet-provider` for
 npm run migrate:live
 ```
 
+You can also run:
+
+```bash
+truffle migrate --network live --reset
+```
+If you want to use truffle commands.
+
 ## Helper Scripts
 
 There are 3 helper scripts provided with this box in the scripts directory:
@@ -47,6 +54,8 @@ There are 3 helper scripts provided with this box in the scripts directory:
 - `fund-contract.js`
 - `request-data.js`
 - `read-contract.js`
+
+In addition, for working with Chainlink Price Feeds and ChainlinkVRF there are folders respectivly. 
 
 They can be used by calling them from `npx truffle exec`, for example:
 
@@ -97,3 +106,8 @@ Using network 'live'.
 Truffle v5.0.25 (core: 5.0.25)
 Node v10.16.3
 ```
+
+## TODO
+
+- Add tests for ChainlinkVRF
+- Add tests for Chainlink Price Feeds

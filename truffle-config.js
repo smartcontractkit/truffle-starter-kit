@@ -20,18 +20,21 @@ module.exports = {
       // ~~Necessary due to https://github.com/trufflesuite/truffle/issues/1971~~
       // Necessary due to https://github.com/trufflesuite/truffle/issues/3008
       skipDryRun: true,
-    }
-    // if you want to test the price feeds, uncomment and run a local forked
-    // ganache server
-    // ,
+    },
+    // TODO
+    // Setup a local ganache chain through the CLI
+    // so we can fork mainnet for testing
     // test: {
-    //   provider: () => {
-    //     return new HDWalletProvider(process.env.MNEMONIC, process.env.RPC_URL)
-    //   },
-    //   network_id: '*',
-    //   // ~~Necessary due to https://github.com/trufflesuite/truffle/issues/1971~~
-    //   // Necessary due to https://github.com/trufflesuite/truffle/issues/3008
+    //   // provider: () => {
+    //   //   return new HDWalletProvider(process.env.MNEMONIC,
+    //   //     "http://127.0.0.1:8545")
+    //   // },
+    //   // host: "127.0.0.1",
+    //   // port: 8545,
+    //   // skipDryRun: true,
     //   skipDryRun: true,
+    //   network_id: '*',
+    //   fork: process.env.RPC_URL
     // }
   },
   compilers: {

@@ -15,15 +15,10 @@ contract('PriceConsumerV3', accounts => {
 
     let priceConsumerV3
 
+    // TODO
     describe('#getLatestPrice', () => {
         it('returns a price', async () => {
-            // priceConsumerV3 = await PriceConsumerV3.new()
-            // const price = await priceConsumerV3.getLatestPrice()
-            // assert.equal(price > 0, true)
-            // assert.equal(
-            //     web3.utils.padLeft(web3.utils.toHex(price), 64),
-            //     web3.utils.padLeft(expected, 64),
-            // )
+            priceConsumerV3 = await PriceConsumerV3.new()
             assert(true, true)
         })
     })

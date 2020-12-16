@@ -25,7 +25,7 @@ contract RandomNumberConsumer is VRFConsumerBase {
             _linkTokenAddress  // LINK Token
         ) public
     {
-        linkTokenAddress = _linkTokenAddress
+        linkTokenAddress = _linkTokenAddress;
         keyHash = 0x6c3699283bda56ad74f6b855546325b68d482e983852a7a82979cc4807b641f4;
         fee = 0.1 * 10 ** 18; // 0.1 LINK
     }
@@ -36,6 +36,13 @@ contract RandomNumberConsumer is VRFConsumerBase {
     function getRandomNumber(uint256 userProvidedSeed) public returns (bytes32 requestId) {
         require(LINK.balanceOf(address(this)) >= fee, "Not enough LINK - fill contract with faucet");
         return requestRandomness(keyHash, fee, userProvidedSeed);
+    }
+
+    /** 
+     * Requests the address of the Chainlink Token on this network 
+     */
+    function getChainlinkToken() public view returns (address) {
+        return linkTokenAddress;
     }
 
     /**
