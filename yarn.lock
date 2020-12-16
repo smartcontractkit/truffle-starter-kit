@@ -454,10 +454,10 @@
     typechain "^1.0.4"
     typechain-target-ethers "^1.0.3"
 
-"@chainlink/contracts@^0.0.8":
-  version "0.0.8"
-  resolved "https://registry.yarnpkg.com/@chainlink/contracts/-/contracts-0.0.8.tgz#8630ff5a68a1aa932936a5c3d58ac34dd6f43cb9"
-  integrity sha512-lQs1FykC2SppK0+3IihI9Y4539tmi4ISHffBptmxvsPetTTf7FqY/9zs5C9RMRUqJXmhZtWY0HFk9Fz8YTFMKQ==
+"@chainlink/contracts@^0.0.11":
+  version "0.0.11"
+  resolved "https://registry.yarnpkg.com/@chainlink/contracts/-/contracts-0.0.11.tgz#22de73cdb8c1b2242ea0ebd32b639d2a17ed2ffe"
+  integrity sha512-ZHvsb6WIgCQFvrtqpmV4AJv/LlozXjseTHll9lTlrzSLJMMyPt3g73pKFpQHjhCXL/0YMGosIYxQ4J+RGirbkg==
   optionalDependencies:
     "@truffle/contract" "^4.2.6"
     ethers "^4.0.45"
