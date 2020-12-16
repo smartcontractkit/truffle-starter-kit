@@ -20,7 +20,7 @@ module.exports = {
       // ~~Necessary due to https://github.com/trufflesuite/truffle/issues/1971~~
       // Necessary due to https://github.com/trufflesuite/truffle/issues/3008
       skipDryRun: true,
-    },
+    }
   },
   compilers: {
     solc: {
