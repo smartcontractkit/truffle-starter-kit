@@ -5,7 +5,7 @@ const { expectRevert, time } = require('@openzeppelin/test-helpers')
 contract('MyContract', accounts => {
   const { LinkToken } = require('@chainlink/contracts/truffle/v0.4/LinkToken')
   const { Oracle } = require('@chainlink/contracts/truffle/v0.6/Oracle')
-  const MyContract = artifacts.require('MyContract.sol')
+  const MyContract = artifacts.require('MyContract')
 
   const defaultAccount = accounts[0]
   const oracleNode = accounts[1]
@@ -17,6 +17,8 @@ contract('MyContract', accounts => {
   // the type of data, but will not work on a public testnet.
   // For the latest JobIDs, visit our docs here:
   // https://docs.chain.link/docs/testnet-oracles
+  // Alternativly, visti a node listing service and choose your
+  // own nodes: https://market.link/
   const jobId = web3.utils.toHex('4c7b7ffb66b344fbaa64995af81e355a')
   const url =
     'https://min-api.cryptocompare.com/data/price?fsym=ETH&tsyms=USD,EUR,JPY'
