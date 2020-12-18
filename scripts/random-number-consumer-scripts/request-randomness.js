@@ -1,5 +1,4 @@
 const RandomNumberConsumer = artifacts.require('RandomNumberConsumer')
-const math = require("mathjs")
 
 /*
   This script allows for a Chainlink request for a 
@@ -9,9 +8,9 @@ const math = require("mathjs")
 
 
 module.exports = async callback => {
-    const USER_PROVIDED_SEED = process.env.RANDOM_SEED || 1
-    const randomNumberConsumer = await RandomNumberConsumer.deployed()
-    console.log('Creating getting a random number from: ', randomNumberConsumer.address)
-    const tx = await randomNumberConsumer.getRandomNumber(USER_PROVIDED_SEED)
-    callback(tx.tx)
+  const USER_PROVIDED_SEED = process.env.RANDOM_SEED || 1
+  const randomNumberConsumer = await RandomNumberConsumer.deployed()
+  console.log('Requesting a random number from: ', randomNumberConsumer.address)
+  const tx = await randomNumberConsumer.getRandomNumber(USER_PROVIDED_SEED)
+  callback(tx.tx)
 }
