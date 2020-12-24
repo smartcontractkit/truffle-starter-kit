@@ -7,7 +7,6 @@ contract RandomNumberConsumer is VRFConsumerBase {
     
     bytes32 internal keyHash;
     uint256 internal fee;
-    address public linkTokenAddress;
     uint256 public randomResult;
     
     /**
@@ -24,7 +23,6 @@ contract RandomNumberConsumer is VRFConsumerBase {
             _linkTokenAddress  // LINK Token
         ) public
     {
-        linkTokenAddress = _linkTokenAddress;
         keyHash = 0x6c3699283bda56ad74f6b855546325b68d482e983852a7a82979cc4807b641f4;
         fee = 0.1 * 10 ** 18; // 0.1 LINK
     }
@@ -40,7 +38,7 @@ contract RandomNumberConsumer is VRFConsumerBase {
      * Requests the address of the Chainlink Token on this network 
      */
     function getChainlinkToken() public view returns (address) {
-        return linkTokenAddress;
+        return address(LINK);
     }
 
     /**
