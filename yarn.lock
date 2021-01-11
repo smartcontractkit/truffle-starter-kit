@@ -473,12 +473,12 @@
     typechain "^1.0.5"
     typechain-target-ethers "^1.0.4"
 
-"@chainlink/contracts@^0.0.11":
-  version "0.0.11"
-  resolved "https://registry.yarnpkg.com/@chainlink/contracts/-/contracts-0.0.11.tgz#22de73cdb8c1b2242ea0ebd32b639d2a17ed2ffe"
-  integrity sha512-ZHvsb6WIgCQFvrtqpmV4AJv/LlozXjseTHll9lTlrzSLJMMyPt3g73pKFpQHjhCXL/0YMGosIYxQ4J+RGirbkg==
+"@chainlink/contracts@^0.0.12":
+  version "0.0.12"
+  resolved "https://registry.yarnpkg.com/@chainlink/contracts/-/contracts-0.0.12.tgz#a768905bfb83a991d919020286d5da093ea8325c"
+  integrity sha512-IFc7kV69PIVOo/mqUrnNI7gUPG+fQ3gpWxxE69F0GmK5CrwPcC3hIbdn32caHGMGcDAhnO0Nwj+8eQ/GpsfXTg==
   optionalDependencies:
-    "@truffle/contract" "^4.2.6"
+    "@truffle/contract" "^4.2.29"
     ethers "^4.0.45"
 
 "@chainlink/test-helpers@0.0.5":
@@ -1026,7 +1026,7 @@
     crypto-js "^3.1.9-1"
     debug "^4.1.0"
 
-"@truffle/contract@^4.0.35", "@truffle/contract@^4.2.6":
+"@truffle/contract@^4.0.35", "@truffle/contract@^4.2.29":
   version "4.3.5"
   resolved "https://registry.yarnpkg.com/@truffle/contract/-/contract-4.3.5.tgz#360434b09bbf9a8d34ed2f7075f40d36509b180c"
   integrity sha512-08gLSId+spnXqdM/25pOiurNcSBeCBa6KrplCgojy1RvqlG8JbEa9jXHWt1DCACZTtSnCsC2ywSNxAKRb4HqIA==
