@@ -8,9 +8,6 @@
 </p>
 <br/>
 
-[![Average time to resolve an issue](http://isitmaintained.com/badge/resolution/smartcontractkit/box.svg)](http://isitmaintained.com/project/smartcontractkit/box "Average time to resolve an issue")
-[![Percentage of issues still open](http://isitmaintained.com/badge/open/smartcontractkit/chainlink-mix.svg)](http://isitmaintained.com/project/smartcontractkit/box "Percentage of issues still open")
-
 Implementation of a [Chainlink requesting contract](https://docs.chain.link/docs/create-a-chainlinked-project).
 
 ## Requirements
