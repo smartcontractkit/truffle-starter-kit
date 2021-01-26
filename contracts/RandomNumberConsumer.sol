@@ -1,7 +1,7 @@
 
 pragma solidity 0.6.12;
 
-import "@chainlink/contracts/src/v0.6/VRFConsumerBase.sol";
+import "@chainlink/contracts/contracts/v0.6/VRFConsumerBase.sol";
 
 contract RandomNumberConsumer is VRFConsumerBase {
     
