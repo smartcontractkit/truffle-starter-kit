@@ -473,10 +473,10 @@
     typechain "^1.0.5"
     typechain-target-ethers "^1.0.4"
 
-"@chainlink/contracts@^0.0.12":
-  version "0.0.12"
-  resolved "https://registry.yarnpkg.com/@chainlink/contracts/-/contracts-0.0.12.tgz#a768905bfb83a991d919020286d5da093ea8325c"
-  integrity sha512-IFc7kV69PIVOo/mqUrnNI7gUPG+fQ3gpWxxE69F0GmK5CrwPcC3hIbdn32caHGMGcDAhnO0Nwj+8eQ/GpsfXTg==
+"@chainlink/contracts@^0.1.6":
+  version "0.1.6"
+  resolved "https://registry.yarnpkg.com/@chainlink/contracts/-/contracts-0.1.6.tgz#e4795565c723f99adaf6e97382cfb41dff0bcf91"
+  integrity sha512-RXKMm+3ADEi1c4/XsXy2Z1m0KQh7H6Nn0FWXmCgXRIorOBt7dvh52c0c41ONJfIhHB/tGeoXnp4lPnZEDqkocA==
   optionalDependencies:
     "@truffle/contract" "^4.2.29"
     ethers "^4.0.45"
