@@ -14,9 +14,10 @@
     "Run tests": "npm test",
     "Compile contracts": "npm run compile",
     "Migrate to development network": "npm run migrate:dev",
-    "Migrate to live network": "npm run migrate:live"
+    "Migrate to live network": "npm run migrate:live",
+    "IMPORTANT: Install dependencies": "npm install"
   },
   "hooks": {
-    "post-unpack": "bash unbox.sh && rm unbox.sh && npm install"
+    "post-unpack": "bash unbox.sh && rm unbox.sh && echo 'IMPORTANT: Please run `npm install` or `yarn install` to install dependencies'"
   }
 }
