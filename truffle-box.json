@@ -18,6 +18,6 @@
     "IMPORTANT: Install dependencies": "npm install"
   },
   "hooks": {
-    "post-unpack": "bash unbox.sh && rm unbox.sh && echo 'IMPORTANT: IMPORTANT: Install dependencies `npm install`'"
+    "post-unpack": "bash unbox.sh && rm unbox.sh"
   }
 }
