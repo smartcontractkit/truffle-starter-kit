@@ -765,7 +765,7 @@
     find-up "^4.1.0"
     fs-extra "^8.1.0"
 
-"@openzeppelin/contracts@^3.3.0":
+"@openzeppelin/contracts@^3.4.0":
   version "3.4.0"
   resolved "https://registry.yarnpkg.com/@openzeppelin/contracts/-/contracts-3.4.0.tgz#9a1669ad5f9fdfb6e273bb5a4fed10cb4cc35eb0"
   integrity sha512-qh+EiHWzfY/9CORr+eRUkeEUP1WiFUcq3974bLHwyYzLBUtK6HPaMkIUHi74S1rDTZ0sNz42DwPc5A4IJvN3rg==
@@ -8765,7 +8765,7 @@ trim-right@^1.0.1:
   resolved "https://registry.yarnpkg.com/trim-right/-/trim-right-1.0.1.tgz#cb2e1203067e0c8de1f614094b9fe45704ea6003"
   integrity sha1-yy4SAwZ+DI3h9hQJS5/kVwTqYAM=
 
-truffle@^5.1.61:
+truffle@^5.1.64:
   version "5.1.64"
   resolved "https://registry.yarnpkg.com/truffle/-/truffle-5.1.64.tgz#f89dcd3711a8c872c8c5dfd5527e49dcded4c175"
   integrity sha512-qobAgDRRK8rUr6SjH8gmacp1a50XJFD2zX1tCtxdk3RXl3yCSEBxHP1srW+jPoPzL6Ua6C0vbbbjVbemrTrtAQ==
