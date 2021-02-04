@@ -16,7 +16,7 @@
   "license": "MIT",
   "dependencies": {
     "@chainlink/contracts": "^0.1.6",
-    "@openzeppelin/contracts": "^3.3.0",
+    "@openzeppelin/contracts": "^3.4.0",
     "@truffle/hdwallet-provider": "^1.2.1"
   },
   "devDependencies": {
@@ -26,6 +26,12 @@
     "chai": "^4.2.0",
     "depcheck": "^1.3.1",
     "solhint": "^3.3.2",
-    "truffle": "^5.1.61"
+    "truffle": "^5.1.64"
+  },
+  "resolutions": {
+    "**/minimist": "^0.2.1",
+    "**/node-fetch": "^2.6.1",
+    "**/yargs-parser": "^13.1.2",
+    "**/mem": "^4.0.0"
   }
 }
