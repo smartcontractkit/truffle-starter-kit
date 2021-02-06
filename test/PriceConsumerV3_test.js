@@ -1,6 +1,6 @@
 /* eslint-disable @typescript-eslint/no-var-requires 
 
-This repo is for testing on a live network only.
+This repo is for testing on kovan network only.
 You can get truffle teams and do a forking version of
 these tests.
 

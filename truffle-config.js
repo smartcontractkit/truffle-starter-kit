@@ -12,7 +12,7 @@ module.exports = {
       port: 7545,
       network_id: '*',
     },
-    live: {
+    kovan: {
       provider: () => {
         return new HDWalletProvider(process.env.MNEMONIC, process.env.RPC_URL)
       },
