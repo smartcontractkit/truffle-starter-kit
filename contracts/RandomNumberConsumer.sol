@@ -1,5 +1,5 @@
-
-pragma solidity 0.6.12;
+// SPDX-License-Identifier: MIT
+pragma solidity ^0.6.12;
 
 import "@chainlink/contracts/src/v0.6/VRFConsumerBase.sol";
 
@@ -44,7 +44,7 @@ contract RandomNumberConsumer is VRFConsumerBase {
     /**
      * Callback function used by VRF Coordinator
      */
-    function fulfillRandomness(bytes32 requestId, uint256 randomness) internal override {
+    function fulfillRandomness(bytes32 /* requestId */, uint256 randomness) internal override {
         randomResult = randomness;
     }
 }
