@@ -8762,10 +8762,10 @@ trim-right@^1.0.1:
   resolved "https://registry.yarnpkg.com/trim-right/-/trim-right-1.0.1.tgz#cb2e1203067e0c8de1f614094b9fe45704ea6003"
   integrity sha1-yy4SAwZ+DI3h9hQJS5/kVwTqYAM=
 
-truffle@^5.1.64:
-  version "5.1.64"
-  resolved "https://registry.yarnpkg.com/truffle/-/truffle-5.1.64.tgz#f89dcd3711a8c872c8c5dfd5527e49dcded4c175"
-  integrity sha512-qobAgDRRK8rUr6SjH8gmacp1a50XJFD2zX1tCtxdk3RXl3yCSEBxHP1srW+jPoPzL6Ua6C0vbbbjVbemrTrtAQ==
+truffle@^5.1.65:
+  version "5.1.65"
+  resolved "https://registry.yarnpkg.com/truffle/-/truffle-5.1.65.tgz#2f31dc9481c74d04c4d72cfb3085f6ee9752d0d2"
+  integrity sha512-MT7kTrMP1tleqwEzGWj/4wKU3pIOR63cVGsrP0MgEDrXOrpM5XNHnCAp9YBrYsDXqiVPZiEK38385qoJdTk6yA==
   dependencies:
     app-module-path "^2.2.0"
     mocha "8.1.2"
