@@ -5,19 +5,20 @@
   "scripts": {
     "compile": "npx truffle compile",
     "console:dev": "npx truffle console --network cldev",
-    "console:live": "npx truffle console --network live",
+    "console:kovan": "npx truffle console --network kovan",
     "depcheck": "echo '@chainlink/box' && depcheck --ignore-dirs=build/contracts || true",
     "solhint": "solhint ./contracts/**/*.sol",
     "lint": "yarn solhint",
     "migrate:dev": "npx truffle migrate --reset --network cldev",
-    "migrate:live": "npx truffle migrate --network live",
+    "migrate:kovan": "npx truffle migrate --network kovan",
     "test": "npx truffle test"
   },
   "license": "MIT",
   "dependencies": {
     "@chainlink/contracts": "^0.1.6",
     "@openzeppelin/contracts": "^3.4.0",
-    "@truffle/hdwallet-provider": "^1.2.1"
+    "@truffle/hdwallet-provider": "^1.2.1",
+    "dotenv": "^8.2.0"
   },
   "devDependencies": {
     "@chainlink/belt": "^0.0.3",
