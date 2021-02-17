@@ -1,5 +1,5 @@
 const HDWalletProvider = require('@truffle/hdwallet-provider')
-require('dotenv').config();
+require('dotenv').config()
 
 const mnemonic = process.env.MNEMONIC
 const url = process.env.RPC_URL
@@ -17,6 +17,13 @@ module.exports = {
       network_id: '*',
     },
     kovan: {
+      provider: () => {
+        return new HDWalletProvider(mnemonic, url)
+      },
+      network_id: '42',
+      skipDryRun: true
+    },
+    live: {
       provider: () => {
         return new HDWalletProvider(mnemonic, url)
       },
