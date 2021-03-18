@@ -1,5 +1,5 @@
 const HDWalletProvider = require('@truffle/hdwallet-provider')
-require('dotenv').config();
+require('dotenv').config()
 
 const mnemonic = process.env.MNEMONIC
 const url = process.env.RPC_URL
@@ -26,7 +26,7 @@ module.exports = {
   },
   compilers: {
     solc: {
-      version: '0.6.12',
+      version: '0.6.6',
     },
   },
 }
