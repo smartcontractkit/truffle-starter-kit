@@ -1,6 +1,4 @@
 const RandomNumberConsumer = artifacts.require('RandomNumberConsumer')
-const VRFCoordinatorMock = artifacts.require('VRFCoordinatorMock')
-const { LinkToken } = require('@chainlink/contracts/truffle/v0.4/LinkToken')
 
 module.exports = async (deployer, network, [defaultAccount]) => {
     // Local (development) networks need their own deployment of the LINK

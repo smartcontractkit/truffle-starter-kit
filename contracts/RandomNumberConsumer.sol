@@ -28,7 +28,6 @@ contract RandomNumberConsumer is VRFConsumerBase {
     {
         keyHash = _keyHash;
         fee = _fee;
-        // fee = 0.1 * 10 ** 18; // 0.1 LINK
     }
     
     /** 
@@ -37,7 +36,6 @@ contract RandomNumberConsumer is VRFConsumerBase {
     function getRandomNumber(uint256 userProvidedSeed) public returns (bytes32 requestId) {
         requestId = requestRandomness(keyHash, fee, userProvidedSeed);
         emit RequestedRandomness(requestId);
-        return requestId;
     }
 
     /** 
