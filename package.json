@@ -17,7 +17,7 @@
   "dependencies": {
     "@chainlink/contracts": "^0.1.7",
     "@openzeppelin/contracts": "^3.4.0",
-    "@truffle/hdwallet-provider": "^1.2.1",
+    "@truffle/hdwallet-provider": "^1.2.6",
     "dotenv": "^8.2.0"
   },
   "devDependencies": {
