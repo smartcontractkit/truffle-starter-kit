@@ -349,12 +349,12 @@
     typechain "^1.0.5"
     typechain-target-ethers "^1.0.4"
 
-"@chainlink/contracts@^0.1.6":
-  version "0.1.6"
-  resolved "https://registry.yarnpkg.com/@chainlink/contracts/-/contracts-0.1.6.tgz#e4795565c723f99adaf6e97382cfb41dff0bcf91"
-  integrity sha512-RXKMm+3ADEi1c4/XsXy2Z1m0KQh7H6Nn0FWXmCgXRIorOBt7dvh52c0c41ONJfIhHB/tGeoXnp4lPnZEDqkocA==
+"@chainlink/contracts@^0.1.7":
+  version "0.1.7"
+  resolved "https://registry.yarnpkg.com/@chainlink/contracts/-/contracts-0.1.7.tgz#ff8e8f1fad5f0766d52ad515f83148f9d82cccad"
+  integrity sha512-txVkGrwFYnyLUC/I5hTe7yZK7fjmB6YFULfBHqryRuREUmGd4bdpXfrcUUsZycmWibanp69QVyQBpsDrPhWsjw==
   optionalDependencies:
-    "@truffle/contract" "^4.2.29"
+    "@truffle/contract" "^4.3.8"
     ethers "^4.0.45"
 
 "@chainlink/test-helpers@0.0.5":
@@ -810,6 +810,28 @@
   dependencies:
     source-map-support "^0.5.19"
 
+"@truffle/blockchain-utils@^0.0.28":
+  version "0.0.28"
+  resolved "https://registry.yarnpkg.com/@truffle/blockchain-utils/-/blockchain-utils-0.0.28.tgz#6e2c7695c013bcce89af0f05de88210a25f7344a"
+  integrity sha512-Q3vtGzDAGI3q2OQV1rUX/HYGJ0PB4RKbrgnwSV3YLc01YOkv4baF5ZJbMxtgLDhJQap1llrN59u2BOAa+jVCsg==
+
+"@truffle/codec@^0.10.2":
+  version "0.10.2"
+  resolved "https://registry.yarnpkg.com/@truffle/codec/-/codec-0.10.2.tgz#b59746c91124b56370011ac1e1ac9a489b35b3eb"
+  integrity sha512-m396zHfF5ee8zv0O0SctVt0/FxGPv/x9pTm24BHlDz540S6wiWwarBb20QF4sXfJ7lwe6ZfwtyQHExuszCENlg==
+  dependencies:
+    big.js "^5.2.2"
+    bn.js "^5.1.3"
+    cbor "^5.1.0"
+    debug "^4.3.1"
+    lodash.clonedeep "^4.5.0"
+    lodash.escaperegexp "^4.1.2"
+    lodash.partition "^4.6.0"
+    lodash.sum "^4.0.2"
+    semver "^7.3.4"
+    utf8 "^3.0.0"
+    web3-utils "1.2.9"
+
 "@truffle/codec@^0.9.5":
   version "0.9.5"
   resolved "https://registry.yarnpkg.com/@truffle/codec/-/codec-0.9.5.tgz#f12896e115524e85173ccd617cd3c8c562575acc"
@@ -837,7 +859,16 @@
     crypto-js "^3.1.9-1"
     debug "^4.1.0"
 
-"@truffle/contract@^4.0.35", "@truffle/contract@^4.2.29":
+"@truffle/contract-schema@^3.3.4":
+  version "3.3.4"
+  resolved "https://registry.yarnpkg.com/@truffle/contract-schema/-/contract-schema-3.3.4.tgz#95f0265cac7de7bcaa0542f5fe671a7896011bfe"
+  integrity sha512-HzscBl/GhZBvPNQeD9l6ewSHSkvNmE+bA0iTVa0Y2mNf5GD5Y3fK2NPyfbOdtckOvLqebvYGEDEPRiXc3BZ05g==
+  dependencies:
+    ajv "^6.10.0"
+    crypto-js "^3.1.9-1"
+    debug "^4.3.1"
+
+"@truffle/contract@^4.0.35":
   version "4.3.6"
   resolved "https://registry.yarnpkg.com/@truffle/contract/-/contract-4.3.6.tgz#e6a77ea8dd5c4832c41529313b0dfa092de65208"
   integrity sha512-XcIZ4eG1BrkoW30ZYTEqQGskmB2a2CoFJOLDjo2heP8xx+mKAPI0ceg2Ym4PbBUtqPBL6CiWE2WRh2zpFWPrOw==
@@ -857,6 +888,38 @@
     web3-eth-abi "1.2.9"
     web3-utils "1.2.9"
 
+"@truffle/contract@^4.3.8":
+  version "4.3.12"
+  resolved "https://registry.yarnpkg.com/@truffle/contract/-/contract-4.3.12.tgz#9c1fed962fae17a8fe1895c6e80314a00dc62cce"
+  integrity sha512-gnOkZe28k/pwPkl4Ke9mj7UwLHDr6nq1ZitZOhukXvq5mf6Ll9hsHhGCwlzKnxdwKHHUpJ/1saqp6OjXOiJYEw==
+  dependencies:
+    "@truffle/blockchain-utils" "^0.0.28"
+    "@truffle/contract-schema" "^3.3.4"
+    "@truffle/debug-utils" "^5.0.12"
+    "@truffle/error" "^0.0.12"
+    "@truffle/interface-adapter" "^0.4.20"
+    bignumber.js "^7.2.1"
+    ethereum-ens "^0.8.0"
+    ethers "^4.0.32"
+    web3 "1.2.9"
+    web3-core-helpers "1.2.9"
+    web3-core-promievent "1.2.9"
+    web3-eth-abi "1.2.9"
+    web3-utils "1.2.9"
+
+"@truffle/debug-utils@^5.0.12":
+  version "5.0.12"
+  resolved "https://registry.yarnpkg.com/@truffle/debug-utils/-/debug-utils-5.0.12.tgz#82ff52cef545ca8c0274292fb97d473253df1570"
+  integrity sha512-NkdSLjAvyylZAOJeywYHzCWHkrAm0kVPVkZZUtsej0wAvzqqL6FWV/jy9wKtpAv5hYhCQBU9BKrPdfdTnE6dYA==
+  dependencies:
+    "@truffle/codec" "^0.10.2"
+    "@trufflesuite/chromafi" "^2.2.2"
+    bn.js "^5.1.3"
+    chalk "^2.4.2"
+    debug "^4.3.1"
+    highlight.js "^10.4.0"
+    highlightjs-solidity "^1.0.21"
+
 "@truffle/debug-utils@^5.0.9":
   version "5.0.9"
   resolved "https://registry.yarnpkg.com/@truffle/debug-utils/-/debug-utils-5.0.9.tgz#1daf5d99f8ada3f5167f3b899413c8f78cd68e9d"
@@ -874,6 +937,11 @@
   version "0.0.11"
   resolved "https://registry.yarnpkg.com/@truffle/error/-/error-0.0.11.tgz#2789c0042d7e796dcbb840c7a9b5d2bcd8e0e2d8"
   integrity sha512-ju6TucjlJkfYMmdraYY/IBJaFb+Sa+huhYtOoyOJ+G29KcgytUVnDzKGwC7Kgk6IsxQMm62Mc1E0GZzFbGGipw==
+
+"@truffle/error@^0.0.12":
+  version "0.0.12"
+  resolved "https://registry.yarnpkg.com/@truffle/error/-/error-0.0.12.tgz#83e02e6ffe1d154fe274141d90038a91fd1e186d"
+  integrity sha512-kZqqnPR9YDJG7KCDOcN1qH16Qs0oz1PzF0Y93AWdhXuL9S9HYo/RUUeqGKbPpRBEZldQUS8aa4EzfK08u5pu6g==
 
 "@truffle/hdwallet-provider@^1.2.1":
   version "1.2.1"
@@ -899,6 +967,15 @@
     bn.js "^4.11.8"
     ethers "^4.0.32"
     source-map-support "^0.5.19"
+    web3 "1.2.9"
+
+"@truffle/interface-adapter@^0.4.20":
+  version "0.4.20"
+  resolved "https://registry.yarnpkg.com/@truffle/interface-adapter/-/interface-adapter-0.4.20.tgz#cf3f176e6fe14321bf164d502bf8d05e50209eb5"
+  integrity sha512-GcdtXjU+Mhx/WuD3Af1thojHilhUAWtKfoNF09oEDyGSrS0QEWq9s9kOFjrfTFJrK+g0I6VXMrU2sIido96NBA==
+  dependencies:
+    bn.js "^5.1.3"
+    ethers "^4.0.32"
     web3 "1.2.9"
 
 "@trufflesuite/chromafi@^2.2.2":
@@ -3160,7 +3237,7 @@ debug@^3.0.1:
   dependencies:
     ms "^2.1.1"
 
-debug@^4.0.1, debug@^4.1.0, debug@^4.1.1, debug@^4.2.0:
+debug@^4.0.1, debug@^4.1.0, debug@^4.1.1, debug@^4.2.0, debug@^4.3.1:
   version "4.3.1"
   resolved "https://registry.yarnpkg.com/debug/-/debug-4.3.1.tgz#f0d229c505e0c6d8c49ac553d1b13dc183f6b2ee"
   integrity sha512-doEwdvm4PCeK4K3RQN2ZC2BYUBaxwLARCqZmMjtF8a51J2Rb0xpVloFRnCODwqjpwnAoao4pelN8l3RJdv3gRQ==
@@ -8031,6 +8108,13 @@ semver@^7.3.2:
   version "7.3.4"
   resolved "https://registry.yarnpkg.com/semver/-/semver-7.3.4.tgz#27aaa7d2e4ca76452f98d3add093a72c943edc97"
   integrity sha512-tCfb2WLjqFAtXn4KEdxIhalnRtoKFN7nAwj0B3ZXCbQloV2tq5eDbcTmT68JJD3nRJq24/XgxtQKFIpQdtvmVw==
+  dependencies:
+    lru-cache "^6.0.0"
+
+semver@^7.3.4:
+  version "7.3.5"
+  resolved "https://registry.yarnpkg.com/semver/-/semver-7.3.5.tgz#0b621c879348d8998e4b0e4be94b3f12e6018ef7"
+  integrity sha512-PoeGJYh8HK4BTO/a9Tf6ZG3veo/A7ZVsYrSA6J8ny9nb3B1VrpkuN+z9OE5wfE5p6H4LchYZsegiQgbJD94ZFQ==
   dependencies:
     lru-cache "^6.0.0"
 
