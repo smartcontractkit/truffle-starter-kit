@@ -12,14 +12,14 @@ module.exports = {
       port: 7545,
       network_id: '*',
     },
-    testnet: {
+    binance_testnet: {
       provider: () => new HDWalletProvider(`${process.env.MNEMONIC}`,'https://data-seed-prebsc-1-s1.binance.org:8545'),
       network_id: 97,
       confirmations: 10,
       timeoutBlocks: 200,
       skipDryRun: true
     },
-    bsc: {
+    binance_smartchain: {
       provider: () => new HDWalletProvider(`${process.env.MNEMONIC}`, `https://bsc-dataseed1.binance.org`),
       network_id: 56,
       confirmations: 10,
