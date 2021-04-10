@@ -16,6 +16,13 @@ module.exports = {
       port: 7545,
       network_id: '*',
     },
+    binance_testnet: {
+      provider: () => new HDWalletProvider(mnemonic,'https://data-seed-prebsc-1-s1.binance.org:8545'),
+      network_id: 97,
+      confirmations: 10,
+      timeoutBlocks: 200,
+      skipDryRun: true
+    },
     kovan: {
       provider: () => {
         return new HDWalletProvider(mnemonic, url)
