@@ -14,7 +14,7 @@
     "Run tests": "npm test",
     "Compile contracts": "npm run compile",
     "Migrate to development network": "npm run migrate:dev",
-    "Migrate to live network": "npm run migrate:live",
+    "Migrate to kovan network": "npm run migrate:kovan",
     "IMPORTANT: Install dependencies": "npm install"
   },
   "hooks": {

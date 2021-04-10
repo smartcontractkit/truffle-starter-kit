@@ -1,4 +1,8 @@
 const HDWalletProvider = require('@truffle/hdwallet-provider')
+require('dotenv').config()
+
+const mnemonic = process.env.MNEMONIC
+const url = process.env.RPC_URL
 
 module.exports = {
   networks: {
@@ -13,32 +17,23 @@ module.exports = {
       network_id: '*',
     },
     binance_testnet: {
-      provider: () => new HDWalletProvider(`${process.env.MNEMONIC}`,'https://data-seed-prebsc-1-s1.binance.org:8545'),
+      provider: () => new HDWalletProvider(mnemonic,'https://data-seed-prebsc-1-s1.binance.org:8545'),
       network_id: 97,
       confirmations: 10,
       timeoutBlocks: 200,
       skipDryRun: true
     },
-    binance_smartchain: {
-      provider: () => new HDWalletProvider(`${process.env.MNEMONIC}`, `https://bsc-dataseed1.binance.org`),
-      network_id: 56,
-      confirmations: 10,
-      timeoutBlocks: 200,
-      skipDryRun: true
-    },
-    live: {
+    kovan: {
       provider: () => {
-        return new HDWalletProvider(process.env.MNEMONIC, process.env.RPC_URL)
+        return new HDWalletProvider(mnemonic, url)
       },
-      network_id: '*',
-      // ~~Necessary due to https://github.com/trufflesuite/truffle/issues/1971~~
-      // Necessary due to https://github.com/trufflesuite/truffle/issues/3008
-      skipDryRun: true,
+      network_id: '42',
+      skipDryRun: true
     },
   },
   compilers: {
     solc: {
-      version: '0.6.12',
+      version: '0.6.6',
     },
   },
 }
