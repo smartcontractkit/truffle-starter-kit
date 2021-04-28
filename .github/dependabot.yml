@@ -1,0 +1,42 @@
+version: 2
+updates:
+- package-ecosystem: npm
+  directory: "/"
+  schedule:
+    interval: daily
+  open-pull-requests-limit: 10
+  ignore:
+  - dependency-name: truffle
+    versions:
+    - 5.1.63
+    - 5.1.64
+    - 5.1.66
+    - 5.1.67
+    - 5.2.1
+    - 5.2.2
+    - 5.2.3
+    - 5.2.4
+    - 5.2.5
+    - 5.2.6
+    - 5.3.0
+    - 5.3.2
+  - dependency-name: "@truffle/hdwallet-provider"
+    versions:
+    - 1.2.2
+    - 1.2.3
+    - 1.2.4
+    - 1.2.5
+  - dependency-name: solhint
+    versions:
+    - 3.3.3
+  - dependency-name: chai
+    versions:
+    - 4.3.1
+    - 4.3.3
+  - dependency-name: "@openzeppelin/contracts"
+    versions:
+    - 3.4.0
+    - 3.4.1
+  - dependency-name: "@chainlink/contracts"
+    versions:
+    - 0.1.4
