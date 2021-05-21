@@ -101,7 +101,7 @@ Truffle v5.0.25 (core: 5.0.25)
 Node v10.16.3
 ```
 
-In the `request-data.js` script, example parameters are provided for you. You can change the oracle address, Job ID, and parameters based on the information available on [our documentation](https://docs.chain.link/docs/testnet-oracles).
+In the `request-data.js` script, example parameters are provided for you. You can change the oracle address, Job ID, and parameters based on the information available on [our documentation](https://docs.chain.link/docs/decentralized-oracles-ethereum-mainnet/#testnets).
 
 ```bash
 npx truffle exec scripts/request-data.js --network kovan
