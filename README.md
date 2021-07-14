@@ -51,6 +51,8 @@ npm test
 
 ## Deploy
 
+> :warning: When pushing your code to Github, make sure that your **MNEMONIC** and **RPC_URL** are stored in a **.env** file and it is also in your **.gitignore**
+
 For deploying to the kovan network, Truffle will use `truffle-hdwallet-provider` for your mnemonic and an RPC URL. Set your environment variables `$RPC_URL` and `$MNEMONIC` before running:
 
 ```bash
