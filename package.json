@@ -21,7 +21,7 @@
     "dotenv": "^8.2.0"
   },
   "devDependencies": {
-    "@chainlink/belt": "^0.0.3",
+    "@chainlink/belt": "^0.0.4",
     "@chainlink/test-helpers": "0.0.5",
     "@openzeppelin/test-helpers": "^0.5.10",
     "chai": "^4.3.0",
