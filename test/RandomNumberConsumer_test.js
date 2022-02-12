@@ -4,7 +4,7 @@ const { expectRevert } = require('@openzeppelin/test-helpers')
 contract('RandomNumberConsumer', accounts => {
     const RandomNumberConsumer = artifacts.require('RandomNumberConsumer')
     const VRFCoordinatorMock = artifacts.require('VRFCoordinatorMock')
-    const { LinkToken } = require('@chainlink/contracts/truffle/v0.4/LinkToken')
+    const { LinkToken } = require('../truffle/v0.4/LinkToken')
     const defaultAccount = accounts[0]
     let randomNumberConsumer, vrfCoordinatorMock, link, keyhash, fee
 

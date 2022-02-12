@@ -1,6 +1,6 @@
 const MyContract = artifacts.require('MyContract')
-const { LinkToken } = require('@chainlink/contracts/truffle/v0.4/LinkToken')
-const { Oracle } = require('@chainlink/contracts/truffle/v0.6/Oracle')
+const { LinkToken } = require('../truffle/v0.4/LinkToken')
+const { Oracle } = require('../truffle/v0.6/Oracle')
 
 module.exports = async (deployer, network, [defaultAccount]) => {
   // Local (development) networks need their own deployment of the LINK
