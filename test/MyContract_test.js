@@ -3,8 +3,8 @@ const { oracle } = require('@chainlink/test-helpers')
 const { expectRevert, time } = require('@openzeppelin/test-helpers')
 
 contract('MyContract', accounts => {
-  const { LinkToken } = require('@chainlink/contracts/truffle/v0.4/LinkToken')
-  const { Oracle } = require('@chainlink/contracts/truffle/v0.6/Oracle')
+  const { LinkToken } = require('../truffle/v0.4/LinkToken')
+  const { Oracle } = require('../truffle/v0.6/Oracle')
   const MyContract = artifacts.require('MyContract')
 
   const defaultAccount = accounts[0]
