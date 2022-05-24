@@ -1,0 +1,3 @@
+tasks:
+  - name: TRUFFLE
+    command: npm install truffle -g && mkdir MyChainlinkProject && cd MyChainlinkProject && truffle unbox smartcontractkit/box && npm install
