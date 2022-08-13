@@ -1,0 +1,3 @@
+tasks:
+  - name: TRUFFLE
+    command: yarn global add truffle && mkdir MyChainlinkProject && cd MyChainlinkProject && truffle unbox smartcontractkit/box && yarn

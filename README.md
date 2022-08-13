@@ -1,144 +1,256 @@
-# Chainlink Truffle Box
-
 <br/>
 <p align="center">
 <a href="https://chain.link" target="_blank">
-<img src="https://raw.githubusercontent.com/smartcontractkit/box/master/box-img-lg.png" width="225" alt="Chainlink Truffle logo">
+<img src="./box-img-lg.png" width="225" alt="Chainlink Truffle logo">
 </a>
 </p>
 <br/>
 
+> For an up to date javascript framework, be sure to check out the [hardhat-starter-kit](https://github.com/smartcontractkit/hardhat-starter-kit) 
+
+[![Open in Gitpod](https://gitpod.io/button/open-in-gitpod.svg)](https://gitpod.io/#https://github.com/smartcontractkit/truffle-starter-kit)
+
+- [Chainlink Truffle Starter Kit](#chainlink-truffle-starter-kit)
+- [Getting Started](#getting-started)
+  - [Requirements](#requirements)
+  - [Quickstart](#quickstart)
+- [Usage](#usage)
+  - [Deploying Contracts](#deploying-contracts)
+  - [Run a Local Network](#run-a-local-network)
+  - [Using a Testnet or Live Network (like Mainnet or Polygon)](#using-a-testnet-or-live-network-like-mainnet-or-polygon)
+    - [Rinkeby Ethereum Testnet Setup](#rinkeby-ethereum-testnet-setup)
+- [Test](#test)
+- [Interacting with Deployed Contracts](#interacting-with-deployed-contracts)
+  - [Chainlink Price Feeds](#chainlink-price-feeds)
+  - [Request & Receive Data](#request--receive-data)
+  - [VRF Get a random number](#vrf-get-a-random-number)
+  - [Keepers](#keepers)
+  - [Verify on Etherscan](#verify-on-etherscan)
+- [Contributing](#contributing)
+- [Thank You!](#thank-you)
+  - [Resources](#resources)
+
+# Chainlink Truffle Starter Kit
+ Implementation of the following 4 Chainlink features using the [Truffle](https://trufflesuite.com/) development environment:
+ - [Chainlink Price Feeds](https://docs.chain.link/docs/using-chainlink-reference-contracts)
+ - [Chainlink VRF](https://docs.chain.link/docs/chainlink-vrf)
+ - [Chainlink Keepers](https://docs.chain.link/docs/chainlink-keepers/introduction/)
+ - [Request & Receive data](https://docs.chain.link/docs/request-and-receive-data)
+
+# Getting Started 
+
+It's recommended that you've gone through the [Truffle getting started documentation](https://trufflesuite.com/docs/truffle/getting-started/compiling-contracts/) before proceeding here. 
+
 ## Requirements
 
-- NPM
+- [git](https://git-scm.com/book/en/v2/Getting-Started-Installing-Git)
+  - You'll know you did it right if you can run `git --version` and you see a response like `git version x.x.x`
+- [Nodejs](https://nodejs.org/en/)
+  - You'll know you've installed nodejs right if you can run:
+    - `node --version`and get an ouput like: `vx.x.x`
+- [Yarn](https://classic.yarnpkg.com/lang/en/docs/install/) instead of `npm`
+  - You'll know you've installed yarn right if you can run:
+    - `yarn --version` And get an output like: `x.x.x`
+    - You might need to install it with npm
 
-## Installation
+> If you're familiar with `npx` and `npm` instead of `yarn`, you can use `npx` for execution and `npm` for installing dependencies. 
 
-1. Install truffle
+## Quickstart
+
+1. Clone and install dependencies
+
+After installing all the requirements, run the following:
 
 ```bash
-npm install truffle -g
+git clone https://github.com/smartcontractkit/truffle-starter-kit/
+cd truffle-starter-kit
+```
+Then:
+```
+yarn
 ```
 
-2. Setup repo
-
-```bash
-mkdir MyChainlinkProject
-cd MyChainlinkProject/
+or
+```
+npm i
 ```
 
-3. Unbox
+2. You can now do stuff!
 
-```bash
-truffle unbox smartcontractkit/box
+```
+yarn truffle test
 ```
 
-4. Install dependencies by running:
+or
 
-```bash
-npm install
-
-# OR...
-
-yarn install
 ```
-
-## Test
-
-```bash
 npm test
 ```
 
-## Deploy
+# Usage
 
-> :warning: When pushing your code to Github, make sure that your **MNEMONIC** and **RPC_URL** are stored in a **.env** file and it is also in your **.gitignore**
+If you run `yarn Truffle --help` you'll get an output of all the tasks you can run. 
 
-For deploying to the kovan network, Truffle will use `truffle-hdwallet-provider` for your mnemonic and an RPC URL. Set your environment variables `$RPC_URL` and `$MNEMONIC` before running:
+## Deploying Contracts
+
+```
+yarn truffle deploy --network <NETWORK>
+```
+
+This will deploy your contracts to the network you specify. Additionally, if on a local network, it will deploy mock Chainlink contracts for you to interact with. If you'd like to interact with your deployed contracts, skip down to [Interacting with Deployed Contracts](#interacting-with-deployed-contracts).
+
+## Run a Local Network
+
+One of the best ways to test and interact with smart contracts is with a local network. To run a local network with all your contracts in it, run the following:
+
+```
+yarn ganache
+```
+
+You'll get a local blockchain, private keys, contracts deployed (from the `deploy` folder scripts), and an endpoint to potentially add to an EVM wallet. 
+
+In a new terminal, you can then deploy using:
+
+```
+yarn truffle deploy
+```
+
+or
+
+```
+yarn truffle deploy --network development
+```
+
+## Using a Testnet or Live Network (like Mainnet or Polygon)
+
+In your `truffle-config.js` you'll see section like:
+
+```
+  networks: {
+```
+
+This section of the file is where you define which networks you want to interact with. You can read more about that whole file in the [Truffle documentation.](https://trufflesuite.com//config/)
+
+To interact with a live or test network, you'll need:
+
+1. An rpc URL 
+2. A Private Key
+3. ETH & LINK token (either testnet or real)
+
+Let's look at an example of setting these up using the Rinkeby testnet. 
+
+### Rinkeby Ethereum Testnet Setup
+
+First, we will need to set environment variables. We can do so by setting them in our `.env` file (create it if it's not there). You can also read more about [environment variables](https://www.twilio.com/blog/2017/01/how-to-set-environment-variables.html) from the linked twilio blog. You'll find a sample of what this file will look like in `.env.example`
+
+> IMPORTANT: MAKE SURE YOU'D DONT EXPOSE THE KEYS YOU PUT IN THIS `.env` FILE. By that, I mean don't push them to a public repo, and please try to keep them keys you use in development not associated with any real funds. 
+
+1. Set your `RINKEBY_RPC_URL` [environment variable.](https://www.twilio.com/blog/2017/01/how-to-set-environment-variables.html)
+
+You can get one for free from [Alchmey](https://www.alchemy.com/), [Infura](https://infura.io/), or [Moralis](https://moralis.io/speedy-nodes/). This is your connection to the blockchain. 
+
+2. Set your `PRIVATE_KEY` environment variable. 
+
+This is your private key from your wallet, ie [MetaMask](https://metamask.io/). This is needed for deploying contracts to public networks. 
+
+![WARNING](https://via.placeholder.com/15/f03c15/000000?text=+) **WARNING** ![WARNING](https://via.placeholder.com/15/f03c15/000000?text=+)
+
+When developing, it's best practice to use a Metamask that isn't associated with any real money. A good way to do this is to make a new browser profile (on Chrome, Brave, Firefox, etc) and install Metamask on that brower, and never send this wallet money.  
+
+Don't commit and push any changes to .env files that may contain sensitive information, such as a private key! If this information reaches a public GitHub repository, someone can use it to check if you have any Mainnet funds in that wallet address, and steal them!
+
+`.env` example:
+```
+RINKEBY_RPC_URL='www.infura.io/asdfadsfafdadf'
+PRIVATE_KEY='abcdef'
+```
+`bash` example
+```
+export RINKEBY_RPC_URL='www.infura.io/asdfadsfafdadf'
+export PRIVATE_KEY='abcdef'
+```
+
+For other networks like mainnet and polygon, you can use different environment variables for your RPC URL and your private key. See the `truffle-config.js` to learn more. 
+
+1. Get some Rinkeby Testnet ETH and LINK 
+
+Head over to the [Chainlink faucets](https://faucets.chain.link/) and get some ETH and LINK. Please follow [the chainlink documentation](https://docs.chain.link/docs/acquire-link/) if unfamiliar. 
+
+4. Create VRF V2 subscription
+
+Head over to [VRF Subscription Page](https://vrf.chain.link/rinkeby) and create the new subscription. Save your subscription ID and put it in `.env` file as `VRF_SUBSCRIPTION_ID`
+
+5. Running commands
+
+You should now be all setup! You can run any command and just pass the `--network rinkeby` now!
+
+To deploy contracts:
+
+```
+yarn truffle deploy --network rinkeby
+```
+
+
+
+# Test
+Tests are located in the [test](./test/) directory, and are split between unit tests and staging/testnet tests. Unit tests should only be run on local environments, and staging tests should only run on live environments.
+
+To run unit tests:
 
 ```bash
-npm run migrate:kovan
+yarn test
+```
+or
+```
+yarn truffle test
 ```
 
-You can also run:
+# Interacting with Deployed Contracts
+
+After deploying your contracts, the deployment output will give you the contract addresses as they are deployed. You can then use these contract addresses in conjunction with Truffle tasks to perform operations on each contract.
+
+
+## Chainlink Price Feeds
+The Price Feeds consumer contract has one task, to read the latest price of a specified price feed contract
 
 ```bash
-truffle migrate --network kovan --reset
-```
-If you want to use truffle commands.
-
-### Local Blockchain
-
-> :warning: Without a Chainlink node deployed locally, requests from smart contracts will not be responded to. We recommend you deploy to the Kovan network
-
-If needed, edit the `truffle-config.js` config file to set the desired network to a different port. It assumes any network is running the RPC port on 8545.
-
-```bash
-npm run migrate:dev
+yarn truffle exec scripts/readPriceConsumer.js --network <NETWORK>
 ```
 
-## Helper Scripts
+## Request & Receive Data
 
-There are 3 helper scripts provided with this box in the scripts directory:
+TODO
 
-- `fund-contract.js`
-- `request-data.js`
-- `read-contract.js`
 
-In addition, for working with Chainlink Price Feeds and ChainlinkVRF there are folders respectively. 
+## VRF Get a random number
 
-They can be used by calling them from `npx truffle exec`, for example:
+TODO
 
-```bash
-npx truffle exec scripts/fund-contract.js --network kovan
-```
+## Keepers
 
-The CLI will output something similar to the following:
+TODO
 
-```
-Using network 'kovan'.
+## Verify on Etherscan
 
-Funding contract: 0x972DB80842Fdaf6015d80954949dBE0A1700705E
-0xd81fcf7bfaf8660149041c823e843f0b2409137a1809a0319d26db9ceaeef650
-Truffle v5.0.25 (core: 5.0.25)
-Node v10.16.3
-```
-
-In the `request-data.js` script, example parameters are provided for you. You can change the oracle address, Job ID, and parameters based on the information available on [our documentation](https://docs.chain.link/docs/decentralized-oracles-ethereum-mainnet/#testnets).
-
-```bash
-npx truffle exec scripts/request-data.js --network kovan
-```
-
-This creates a request and will return the transaction ID, for example:
+You'll need an `ETHERSCAN_API_KEY` environment variable. You can get one from the [Etherscan API site.](https://etherscan.io/apis). If you have it set, your deploy script will try to verify them by default, but if you want to verify any manually, you can run: 
 
 ```
-Using network 'kovan'.
-
-Creating request on contract: 0x972DB80842Fdaf6015d80954949dBE0A1700705E
-0x828f256109f22087b0804a4d1a5c25e8ce9e5ac4bbc777b5715f5f9e5b181a4b
-Truffle v5.0.25 (core: 5.0.25)
-Node v10.16.3
+yarn truffle run verify <CONTRACT> --network <NETWORK>
 ```
-
-After creating a request on a kovan network, you will want to wait 3 blocks for the Chainlink node to respond. Then call the `read-contract.js` script to read the contract's state.
-
-```bash
-npx truffle exec scripts/read-contract.js --network kovan
-```
-
-Once the oracle has responded, you will receive a value similar to the one below:
+example:
 
 ```
-Using network 'kovan'.
-
-21568
-Truffle v5.0.25 (core: 5.0.25)
-Node v10.16.3
+yarn truffle run verify PriceConsumerV3 --network rinkeby
 ```
 
-## TODO
 
-- Add tests for ChainlinkVRF
-- Add tests for Chainlink Price Feeds
-- Refactor tests to use this instead of defining contracts with let
-- Use the Chainlink-published mocks for [MockV3Aggregator](https://github.com/smartcontractkit/chainlink/blob/develop/evm-contracts/src/v0.6/tests/MockV3Aggregator.sol) and [VRFCoordinatorMock](https://github.com/smartcontractkit/chainlink/blob/develop/evm-contracts/src/v0.6/tests/VRFCoordinatorMock.sol)
+# Contributing
+
+Contributions are always welcome! Open a PR or an issue!
+
+# Thank You!
+
+## Resources
+
+- [Chainlink Documentation](https://docs.chain.link/)
+- [Truffle Documentation](https://trufflesuite.com/)
