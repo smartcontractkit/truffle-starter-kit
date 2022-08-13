@@ -40,6 +40,9 @@
 # Getting Started 
 
 It's recommended that you've gone through the [Truffle getting started documentation](https://trufflesuite.com/docs/truffle/getting-started/compiling-contracts/) before proceeding here. 
+=======
+[![Open in Gitpod](https://gitpod.io/button/open-in-gitpod.svg)](https://gitpod.io/#https://github.com/smartcontractkit/truffle-starter-kit)
+
 
 ## Requirements
 
