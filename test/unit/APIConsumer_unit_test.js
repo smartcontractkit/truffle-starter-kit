@@ -2,7 +2,7 @@ const { expect } = require("chai")
 const MockOracle = artifacts.require("MockOracle")
 const APIConsumer = artifacts.require("APIConsumer")
 const LinkToken = artifacts.require("LinkToken")
-const { fundContractWithLink } = require("../../scripts/fundContract")
+const { fundContractWithLink } = require("../../scripts/utils/fundContract")
 
 contract("APIConsumer", function (deployer, network, accounts) {
     let apiConsumer, mockOracle, linkToken

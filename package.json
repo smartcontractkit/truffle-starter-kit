@@ -1,6 +1,6 @@
 {
   "scripts": {
-    "ganache": "yarn ganache -d",
+    "chain": "yarn ganache -d",
     "test": "yarn truffle test"
   },
   "devDependencies": {

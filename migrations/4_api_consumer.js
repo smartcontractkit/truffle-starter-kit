@@ -4,6 +4,7 @@ const MockOracle = artifacts.require("MockOracle")
 const web3 = require("web3")
 
 const { networkConfig } = require("../helper-truffle-config")
+const { fundContractWithLink } = require("../scripts/utils/fundContract")
 
 module.exports = async function (deployer, network, accounts) {
     let oracle, linkTokenAddress
@@ -22,4 +23,9 @@ module.exports = async function (deployer, network, accounts) {
 
     await deployer.deploy(APIConsumer, oracle, jobId, fee, linkTokenAddress)
     console.log("API Consumer Deployed!")
+
+    console.log("Let's fund the contract with Link...")
+    const apiConsumer = await APIConsumer.deployed()
+
+    await fundContractWithLink(apiConsumer.address, network)
 }

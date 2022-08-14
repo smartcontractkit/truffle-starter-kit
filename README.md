@@ -18,7 +18,7 @@
   - [Deploying Contracts](#deploying-contracts)
   - [Run a Local Network](#run-a-local-network)
   - [Using a Testnet or Live Network (like Mainnet or Polygon)](#using-a-testnet-or-live-network-like-mainnet-or-polygon)
-    - [Rinkeby Ethereum Testnet Setup](#rinkeby-ethereum-testnet-setup)
+    - [Goerli Ethereum Testnet Setup](#goerli-ethereum-testnet-setup)
 - [Test](#test)
 - [Interacting with Deployed Contracts](#interacting-with-deployed-contracts)
   - [Chainlink Price Feeds](#chainlink-price-feeds)
@@ -107,7 +107,7 @@ This will deploy your contracts to the network you specify. Additionally, if on 
 One of the best ways to test and interact with smart contracts is with a local network. To run a local network with all your contracts in it, run the following:
 
 ```
-yarn ganache
+yarn chain
 ```
 
 You'll get a local blockchain, private keys, contracts deployed (from the `deploy` folder scripts), and an endpoint to potentially add to an EVM wallet. 
@@ -142,13 +142,13 @@ To interact with a live or test network, you'll need:
 
 Let's look at an example of setting these up using the Rinkeby testnet. 
 
-### Rinkeby Ethereum Testnet Setup
+### Goerli Ethereum Testnet Setup
 
 First, we will need to set environment variables. We can do so by setting them in our `.env` file (create it if it's not there). You can also read more about [environment variables](https://www.twilio.com/blog/2017/01/how-to-set-environment-variables.html) from the linked twilio blog. You'll find a sample of what this file will look like in `.env.example`
 
 > IMPORTANT: MAKE SURE YOU'D DONT EXPOSE THE KEYS YOU PUT IN THIS `.env` FILE. By that, I mean don't push them to a public repo, and please try to keep them keys you use in development not associated with any real funds. 
 
-1. Set your `RINKEBY_RPC_URL` [environment variable.](https://www.twilio.com/blog/2017/01/how-to-set-environment-variables.html)
+1. Set your `GOERLI_RPC_URL` [environment variable.](https://www.twilio.com/blog/2017/01/how-to-set-environment-variables.html)
 
 You can get one for free from [Alchmey](https://www.alchemy.com/), [Infura](https://infura.io/), or [Moralis](https://moralis.io/speedy-nodes/). This is your connection to the blockchain. 
 
@@ -164,24 +164,24 @@ Don't commit and push any changes to .env files that may contain sensitive infor
 
 `.env` example:
 ```
-RINKEBY_RPC_URL='www.infura.io/asdfadsfafdadf'
+GOERLI_RPC_URL='www.infura.io/asdfadsfafdadf'
 PRIVATE_KEY='abcdef'
 ```
 `bash` example
 ```
-export RINKEBY_RPC_URL='www.infura.io/asdfadsfafdadf'
+export GOERLI_RPC_URL='www.infura.io/asdfadsfafdadf'
 export PRIVATE_KEY='abcdef'
 ```
 
 For other networks like mainnet and polygon, you can use different environment variables for your RPC URL and your private key. See the `truffle-config.js` to learn more. 
 
-1. Get some Rinkeby Testnet ETH and LINK 
+1. Get some Goerli Testnet ETH and LINK 
 
 Head over to the [Chainlink faucets](https://faucets.chain.link/) and get some ETH and LINK. Please follow [the chainlink documentation](https://docs.chain.link/docs/acquire-link/) if unfamiliar. 
 
 4. Create VRF V2 subscription
 
-Head over to [VRF Subscription Page](https://vrf.chain.link/rinkeby) and create the new subscription. Save your subscription ID and put it in `.env` file as `VRF_SUBSCRIPTION_ID`
+Head over to [VRF Subscription Page](https://vrf.chain.link/goerli) and create the new subscription. Save your subscription ID and place it in your `helper-truffle-config.js` under `subId`. 
 
 5. Running commands
 
@@ -214,7 +214,15 @@ After deploying your contracts, the deployment output will give you the contract
 
 
 ## Chainlink Price Feeds
-The Price Feeds consumer contract has one task, to read the latest price of a specified price feed contract
+The Price Feeds consumer contract has one script, to read the latest price of a specified price feed contract. 
+
+You can deploy just the price feed consumer with:
+
+```
+truffle deploy --f 3 --to 3 --network <NETWORK>
+```
+
+After deployment, run the following:
 
 ```bash
 yarn truffle exec scripts/readPriceConsumer.js --network <NETWORK>
@@ -222,16 +230,48 @@ yarn truffle exec scripts/readPriceConsumer.js --network <NETWORK>
 
 ## Request & Receive Data
 
-TODO
+The API Consumer contract has one script, to request data from the API and wait for a response. 
+
+You can deploy just the API Consumer with:
+
+```
+truffle deploy --f 4 --to 4 --network <NETWORK>
+```
+
+After deployment, run the following:
+
+```bash
+yarn truffle exec scripts/requestAndReadAPI.js --network <NETWORK>
+```
 
 
 ## VRF Get a random number
 
-TODO
+The VRF Consumer contract has one script, to request a random number and wait for a response. 
+
+You can deploy just the VRF Consumer with:
+
+```
+truffle deploy --f 5 --to 5 --network <NETWORK>
+```
+
+After deployment, you'll need to add your contract address to your subscription. Head over to [vrf.chain.link](https://vrf.chain.link/goerli/new) and add your consumer. 
+
+Then, run the following:
+
+```bash
+yarn truffle exec scripts/requestAndReadRandomNumber.js --network <NETWORK>
+```
 
 ## Keepers
 
-TODO
+The Keepers Consumer contract has one script, to check the upkeep. After deployment, run the following:
+
+```bash
+yarn truffle exec scripts/checkUpkeep.js --network <NETWORK>
+```
+
+To see everything in action, you'll want to set up a consumer at [keepers.chain.link](https://keepers.chain.link/goerli).
 
 ## Verify on Etherscan
 
