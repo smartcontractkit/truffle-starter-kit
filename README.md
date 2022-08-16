@@ -12,6 +12,7 @@
 
 - [Chainlink Truffle Starter Kit](#chainlink-truffle-starter-kit)
 - [Getting Started](#getting-started)
+- [It's recommended that you've gone through the Truffle getting started documentation before proceeding here.](#its-recommended-that-youve-gone-through-the-truffle-getting-started-documentation-before-proceeding-here)
   - [Requirements](#requirements)
   - [Quickstart](#quickstart)
 - [Usage](#usage)
@@ -115,14 +116,9 @@ You'll get a local blockchain, private keys, contracts deployed (from the `deplo
 In a new terminal, you can then deploy using:
 
 ```
-yarn truffle deploy
+yarn truffle deploy --network ganache
 ```
 
-or
-
-```
-yarn truffle deploy --network development
-```
 
 ## Using a Testnet or Live Network (like Mainnet or Polygon)
 
@@ -140,7 +136,7 @@ To interact with a live or test network, you'll need:
 2. A Private Key
 3. ETH & LINK token (either testnet or real)
 
-Let's look at an example of setting these up using the Rinkeby testnet. 
+Let's look at an example of setting these up using the Goerli testnet. 
 
 ### Goerli Ethereum Testnet Setup
 
@@ -185,12 +181,12 @@ Head over to [VRF Subscription Page](https://vrf.chain.link/goerli) and create t
 
 5. Running commands
 
-You should now be all setup! You can run any command and just pass the `--network rinkeby` now!
+You should now be all setup! You can run any command and just pass the `--network goerli` now!
 
 To deploy contracts:
 
 ```
-yarn truffle deploy --network rinkeby
+yarn truffle deploy --network goerli
 ```
 
 
@@ -283,7 +279,7 @@ yarn truffle run verify <CONTRACT> --network <NETWORK>
 example:
 
 ```
-yarn truffle run verify PriceConsumerV3 --network rinkeby
+yarn truffle run verify PriceConsumerV3 --network goerli
 ```
 
 

@@ -1,12 +1,12 @@
 const VRFCoordinatorV2Mock = artifacts.require("VRFCoordinatorV2Mock")
 const RandomNumberConsumerV2 = artifacts.require("RandomNumberConsumerV2")
 
-const { networkConfig } = require("../helper-truffle-config")
+const { networkConfig, developmentChains } = require("../helper-truffle-config")
 
 module.exports = async function (deployer, network, accounts) {
     let vrfCoordinatorAddress, subscriptionId
 
-    if (network == "development") {
+    if (developmentChains.includes(network)) {
         const vrfCoordinatorV2Mock = await VRFCoordinatorV2Mock.deployed()
         vrfCoordinatorAddress = vrfCoordinatorV2Mock.address
 

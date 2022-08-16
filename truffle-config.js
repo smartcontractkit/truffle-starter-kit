@@ -43,13 +43,8 @@ module.exports = {
      */
 
     networks: {
-        // Useful for testing. The `development` name is special - truffle uses it by default
-        // if it's defined here and no other network is specified at the command line.
-        // You should run a client (like ganache, geth, or parity) in a separate terminal
-        // tab if you use this network and you must also set the `host`, `port` and `network_id`
-        // options below to some value.
-        //
-        development: {
+        // There is a hidden "test" network that gets called when you run `truffle test`
+        ganache: {
             provider: () => new HDWalletProvider(ganachePrivateKeys, "http://127.0.0.1:8545"),
             host: "127.0.0.1", // Localhost (default: none)
             port: 8545, // Standard Ethereum port (default: none)
@@ -73,13 +68,6 @@ module.exports = {
             timeoutBlocks: 200, // # of blocks before a deployment times out  (minimum/default: 50)
             skipDryRun: true, // Skip dry run before migrations? (default: false for public nets )
         },
-        //
-        // Useful for private networks
-        // private: {
-        //   provider: () => new HDWalletProvider(mnemonic, `https://network.io`),
-        //   network_id: 2111,   // This network is yours, in the cloud.
-        //   production: true    // Treats this network as if it was a public net. (default: false)
-        // }
     },
 
     // Set default mocha options here, use special reporters, etc.
@@ -104,25 +92,4 @@ module.exports = {
             },
         },
     },
-
-    // Truffle DB is currently disabled by default; to enable it, change enabled:
-    // false to enabled: true. The default storage location can also be
-    // overridden by specifying the adapter settings, as shown in the commented code below.
-    //
-    // NOTE: It is not possible to migrate your contracts to truffle DB and you should
-    // make a backup of your artifacts to a safe location before enabling this feature.
-    //
-    // After you backed up your artifacts you can utilize db by running migrate as follows:
-    // $ truffle migrate --reset --compile-all
-    //
-    // db: {
-    //     enabled: true,
-    //     host: "127.0.0.1",
-    //     adapter: {
-    //         name: "sqlite",
-    //         settings: {
-    //             directory: ".db",
-    //         },
-    //     },
-    // },
 }

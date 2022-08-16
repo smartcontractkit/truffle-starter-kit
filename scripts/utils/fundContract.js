@@ -1,11 +1,11 @@
 const LinkToken = artifacts.require("LinkToken")
-const { networkConfig } = require("../../helper-truffle-config")
+const { networkConfig, developmentChains } = require("../../helper-truffle-config")
 
 const payment = process.env.TRUFFLE_CL_BOX_PAYMENT || "100000000000000000" // 0.1 LINK
 
 async function fundContractWithLink(contractAddress, network) {
     let linkToken
-    if (network == "development") {
+    if (developmentChains.includes(network)) {
         linkToken = await LinkToken.deployed()
     } else {
         linkToken = await LinkToken.at(networkConfig[network]["linkToken"])

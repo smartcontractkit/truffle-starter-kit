@@ -1,12 +1,12 @@
 const PriceConsumerV3 = artifacts.require("PriceConsumerV3")
 const MockV3Aggregator = artifacts.require("MockV3Aggregator")
 
-const { networkConfig } = require("../helper-truffle-config")
+const { networkConfig, developmentChains } = require("../helper-truffle-config")
 
 module.exports = async function (deployer, network, accounts) {
     let ethUsdPriceFeedAddress
 
-    if (network == "development") {
+    if (developmentChains.includes(network)) {
         const ethUsdAggregator = await MockV3Aggregator.deployed()
         ethUsdPriceFeedAddress = ethUsdAggregator.address
     } else {
