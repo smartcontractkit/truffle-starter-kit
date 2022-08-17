@@ -1,7 +1,7 @@
 {
   "scripts": {
     "chain": "yarn ganache -d",
-    "test": "yarn chain &; yarn truffle test"
+    "test": "yarn truffle test"
   },
   "devDependencies": {
     "@chainlink/contracts": "^0.4.2",

@@ -13,7 +13,7 @@ contract RandomNumberConsumerV2 is VRFConsumerBaseV2 {
     VRFCoordinatorV2Interface immutable COORDINATOR;
 
     // Your subscription ID.
-    uint64 public immutable s_subscriptionId;
+    uint64 immutable s_subscriptionId;
 
     // The gas lane to use, which specifies the maximum gas price to bump to.
     // For a list of available gas lanes on each network,
@@ -85,5 +85,9 @@ contract RandomNumberConsumerV2 is VRFConsumerBaseV2 {
     ) internal override {
         s_randomWords = randomWords;
         emit ReturnedRandomness(randomWords);
+    }
+
+    function getSubscriptionId() public view returns (uint64) {
+        return s_subscriptionId;
     }
 }
