@@ -1,5 +1,8 @@
-const Migrations = artifacts.require('Migrations')
+const Migrations = artifacts.require("Migrations")
+const { developmentChains } = require("../helper-truffle-config")
 
-module.exports = deployer => {
-  deployer.deploy(Migrations)
+module.exports = async function (deployer, network) {
+    if (developmentChains.includes(network)) {
+        await deployer.deploy(Migrations)
+    }
 }

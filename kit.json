@@ -1,8 +1,8 @@
 {
-  "manifestVersion": "0.1.0",
-  "message": "Run tests: npm test\nCompile contracts: npm run compile\nMigrate to development network: npm run migrate:dev\nMigrate to kovan network: npm run migrate:kovan",
-  "files": ["evm-box", "unbox.sh"],
-  "hooks": {
-    "post-unpack": "bash unbox.sh && rm unbox.sh && npm install"
+    "manifestVersion": "0.2.0",
+    "message": "Run tests: yarn truffle test\nCompile contracts: yarn truffle compile\nMigrate to development network: yarn truffle migrate\nMigrate to rinkeby network: yarn truffle migrate --network rinkeby",
+    "files": ["evm-box", "unbox.sh"],
+    "hooks": {
+      "post-unpack": "bash unbox.sh && rm unbox.sh && npm install"
+    }
   }
-}

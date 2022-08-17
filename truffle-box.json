@@ -1,23 +1,23 @@
 {
-  "ignore": [
-    ".git",
-    ".gitattributes",
-    ".githooks",
-    ".github",
-    ".gitignore",
-    ".nvmrc",
-    "kit.json",
-    "node_modules",
-    "yarn.lock"
-  ],
-  "commands": {
-    "Run tests": "npm test",
-    "Compile contracts": "npm run compile",
-    "Migrate to development network": "npm run migrate:dev",
-    "Migrate to kovan network": "npm run migrate:kovan",
-    "IMPORTANT: Install dependencies": "npm install"
-  },
-  "hooks": {
-    "post-unpack": "bash unbox.sh && rm unbox.sh"
+    "ignore": [
+      ".git",
+      ".gitattributes",
+      ".githooks",
+      ".github",
+      ".gitignore",
+      ".nvmrc",
+      "kit.json",
+      "node_modules",
+      "yarn.lock"
+    ],
+    "commands": {
+      "Run tests": "yarn truffle test",
+      "Compile contracts": "yarn truffle compile",
+      "Migrate to development network": "yarn truffle migrate",
+      "Migrate to rinkeby network": "yarn truffle migrate --network rinkeby",
+      "IMPORTANT: Install dependencies": "yarn"
+    },
+    "hooks": {
+      "post-unpack": "bash unbox.sh && rm unbox.sh"
+    }
   }
-}
