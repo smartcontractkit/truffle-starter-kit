@@ -14,7 +14,7 @@
       "Run tests": "yarn truffle test",
       "Compile contracts": "yarn truffle compile",
       "Migrate to development network": "yarn truffle migrate",
-      "Migrate to rinkeby network": "yarn truffle migrate --network rinkeby",
+      "Migrate to goerli network": "yarn truffle migrate --network goerli",
       "IMPORTANT: Install dependencies": "yarn"
     },
     "hooks": {
