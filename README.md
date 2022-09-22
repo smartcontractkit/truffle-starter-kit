@@ -101,7 +101,7 @@ If you run `yarn Truffle --help` you'll get an output of all the tasks you can r
 yarn truffle deploy --network <NETWORK>
 ```
 
-This will deploy your contracts to the network you specify. Additionally, if on a local network, it will deploy mock Chainlink contracts for you to interact with. If you'd like to interact with your deployed contracts, skip down to [Interacting with Deployed Contracts](#interacting-with-deployed-contracts).
+This will deploy your contracts to the network you specify. Additionally, if you are on a local network, it will deploy mock Chainlink contracts for you to interact with. If you'd like to interact with your deployed contracts, skip down to [Interacting with Deployed Contracts](#interacting-with-deployed-contracts).
 
 ## Run a Local Network
 
