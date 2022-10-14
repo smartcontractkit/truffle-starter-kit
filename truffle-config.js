@@ -22,14 +22,10 @@ const HDWalletProvider = require("@truffle/hdwallet-provider")
 require("dotenv").config()
 
 const privateKeys = [process.env.PRIVATE_KEY]
-// These are the keys auto-generated from running `ganache -d`
+// These are the keys auto-generated from running `ganache -d`, which will create a deterministic wallet
 const ganachePrivateKeys = ["0x4f3edf983ac636a65a842ce7c78d9aa706d3b113bce9c46f30d7d21715b23b1d"]
-const GOERLI_RPC_URL =
-    process.env.GOERLI_RPC_URL || "https://eth-goerli.alchemyapi.io/v2/your-api-key"
-const ETHERSCAN_API_KEY = process.env.ETHERSCAN_API_KEY || ""
-//
-// const fs = require('fs');
-// const mnemonic = fs.readFileSync(".secret").toString().trim();
+const GOERLI_RPC_URL = process.env.GOERLI_RPC_URL
+const ETHERSCAN_API_KEY = process.env.ETHERSCAN_API_KEY
 
 module.exports = {
     /**
@@ -54,13 +50,13 @@ module.exports = {
 
         // Useful for deploying to a public network.
         // Note: It's important to wrap the provider as a function to ensure truffle uses a new provider every time.
-        goerli: {
-            provider: () => new HDWalletProvider(privateKeys, GOERLI_RPC_URL),
-            network_id: 5, // Goerli's id
-            confirmations: 1, // # of confirmations to wait between deployments. (default: 0)
-            timeoutBlocks: 200, // # of blocks before a deployment times out  (minimum/default: 50)
-            skipDryRun: true, // Skip dry run before migrations? (default: false for public nets )
-        },
+        // goerli: {
+        //     provider: () => new HDWalletProvider(privateKeys, GOERLI_RPC_URL),
+        //     network_id: 5, // Goerli's id
+        //     confirmations: 1, // # of confirmations to wait between deployments. (default: 0)
+        //     timeoutBlocks: 200, // # of blocks before a deployment times out  (minimum/default: 50)
+        //     skipDryRun: true, // Skip dry run before migrations? (default: false for public nets )
+        // },
     },
 
     // Set default mocha options here, use special reporters, etc.

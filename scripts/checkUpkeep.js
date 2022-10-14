@@ -1,5 +1,4 @@
 const KeepersConsumer = artifacts.require("KeepersConsumer")
-const web3 = require("web3")
 
 module.exports = async (callback) => {
     const keepersConsumer = await KeepersConsumer.deployed()
