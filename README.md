@@ -6,8 +6,6 @@
 </p>
 <br/>
 
-> For an up to date javascript framework, be sure to check out the [hardhat-starter-kit](https://github.com/smartcontractkit/hardhat-starter-kit) 
-
 [![Open in Gitpod](https://gitpod.io/button/open-in-gitpod.svg)](https://gitpod.io/#https://github.com/smartcontractkit/truffle-starter-kit)
 
 - [Chainlink Truffle Starter Kit](#chainlink-truffle-starter-kit)
