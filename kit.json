@@ -1,8 +1,8 @@
 {
     "manifestVersion": "0.2.0",
-    "message": "Run tests: yarn truffle test\nCompile contracts: yarn truffle compile\nMigrate to development network: yarn truffle migrate\nMigrate to goerli network: yarn truffle migrate --network goerli",
+    "message": "Run tests: yarn truffle test\nCompile contracts: yarn truffle compile\nMigrate to development network: yarn truffle migrate\nMigrate to sepolia network: yarn truffle migrate --network sepolia",
     "files": ["evm-box", "unbox.sh"],
     "hooks": {
-      "post-unpack": "bash unbox.sh && rm unbox.sh && npm install"
+        "post-unpack": "bash unbox.sh && rm unbox.sh && npm install"
     }
-  }
+}

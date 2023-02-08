@@ -1,23 +1,23 @@
 {
     "ignore": [
-      ".git",
-      ".gitattributes",
-      ".githooks",
-      ".github",
-      ".gitignore",
-      ".nvmrc",
-      "kit.json",
-      "node_modules",
-      "yarn.lock"
+        ".git",
+        ".gitattributes",
+        ".githooks",
+        ".github",
+        ".gitignore",
+        ".nvmrc",
+        "kit.json",
+        "node_modules",
+        "yarn.lock"
     ],
     "commands": {
-      "Run tests": "yarn truffle test",
-      "Compile contracts": "yarn truffle compile",
-      "Migrate to development network": "yarn truffle migrate",
-      "Migrate to goerli network": "yarn truffle migrate --network goerli",
-      "IMPORTANT: Install dependencies": "yarn"
+        "Run tests": "yarn truffle test",
+        "Compile contracts": "yarn truffle compile",
+        "Migrate to development network": "yarn truffle migrate",
+        "Migrate to sepolia network": "yarn truffle migrate --network sepolia",
+        "IMPORTANT: Install dependencies": "yarn"
     },
     "hooks": {
-      "post-unpack": "bash unbox.sh && rm unbox.sh"
+        "post-unpack": "bash unbox.sh && rm unbox.sh"
     }
-  }
+}

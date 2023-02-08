@@ -24,61 +24,61 @@ require("dotenv").config()
 const privateKeys = [process.env.PRIVATE_KEY]
 // These are the keys auto-generated from running `ganache -d`, which will create a deterministic wallet
 const ganachePrivateKeys = ["0x4f3edf983ac636a65a842ce7c78d9aa706d3b113bce9c46f30d7d21715b23b1d"]
-const GOERLI_RPC_URL = process.env.GOERLI_RPC_URL
+const SEPOLIA_RPC_URL = process.env.SEPOLIA_RPC_URL
 const ETHERSCAN_API_KEY = process.env.ETHERSCAN_API_KEY
 
 module.exports = {
-    /**
-     * Networks define how you connect to your ethereum client and let you set the
-     * defaults web3 uses to send transactions. If you don't specify one truffle
-     * will spin up a development blockchain for you on port 9545 when you
-     * run `develop` or `test`. You can ask a truffle command to use a specific
-     * network from the command line, e.g
-     *
-     * $ truffle test --network <network-name>
-     */
+  /**
+   * Networks define how you connect to your ethereum client and let you set the
+   * defaults web3 uses to send transactions. If you don't specify one truffle
+   * will spin up a development blockchain for you on port 9545 when you
+   * run `develop` or `test`. You can ask a truffle command to use a specific
+   * network from the command line, e.g
+   *
+   * $ truffle test --network <network-name>
+   */
 
-    networks: {
-        // There is a hidden "test" network that gets called when you run `truffle test`
-        ganache: {
-            provider: () => new HDWalletProvider(ganachePrivateKeys, "http://127.0.0.1:8545"),
-            host: "127.0.0.1", // Localhost (default: none)
-            port: 8545, // Standard Ethereum port (default: none)
-            network_id: "*", // Any network (default: none)
-            confirmations: 0,
+  networks: {
+    // There is a hidden "test" network that gets called when you run `truffle test`
+    ganache: {
+      provider: () => new HDWalletProvider(ganachePrivateKeys, "http://127.0.0.1:8545"),
+      host: "127.0.0.1", // Localhost (default: none)
+      port: 8545, // Standard Ethereum port (default: none)
+      network_id: "*", // Any network (default: none)
+      confirmations: 0,
+    },
+
+    // Useful for deploying to a public network.
+    // Note: It's important to wrap the provider as a function to ensure truffle uses a new provider every time.
+    // sepolia: {
+    //   provider: () => new HDWalletProvider(privateKeys, SEPOLIA_RPC_URL),
+    //   network_id: 11155111, // Sepolia's id
+    //   confirmations: 1, // # of confirmations to wait between deployments. (default: 0)
+    //   timeoutBlocks: 200, // # of blocks before a deployment times out  (minimum/default: 50)
+    //   skipDryRun: true, // Skip dry run before migrations? (default: false for public nets )
+    // },
+  },
+
+  // Set default mocha options here, use special reporters, etc.
+  mocha: {
+    timeout: 100000,
+  },
+
+  plugins: ["truffle-plugin-verify"],
+  api_keys: {
+    etherscan: ETHERSCAN_API_KEY,
+  },
+
+  // Configure your compilers
+  compilers: {
+    solc: {
+      version: "pragma", // Fetch exact version from solc-bin (default: truffle's version)
+      settings: {
+        optimizer: {
+          enabled: false,
+          runs: 200,
         },
-
-        // Useful for deploying to a public network.
-        // Note: It's important to wrap the provider as a function to ensure truffle uses a new provider every time.
-        // goerli: {
-        //     provider: () => new HDWalletProvider(privateKeys, GOERLI_RPC_URL),
-        //     network_id: 5, // Goerli's id
-        //     confirmations: 1, // # of confirmations to wait between deployments. (default: 0)
-        //     timeoutBlocks: 200, // # of blocks before a deployment times out  (minimum/default: 50)
-        //     skipDryRun: true, // Skip dry run before migrations? (default: false for public nets )
-        // },
+      },
     },
-
-    // Set default mocha options here, use special reporters, etc.
-    mocha: {
-        timeout: 100000,
-    },
-
-    plugins: ["truffle-plugin-verify"],
-    api_keys: {
-        etherscan: ETHERSCAN_API_KEY,
-    },
-
-    // Configure your compilers
-    compilers: {
-        solc: {
-            version: "pragma", // Fetch exact version from solc-bin (default: truffle's version)
-            settings: {
-                optimizer: {
-                    enabled: false,
-                    runs: 200,
-                },
-            },
-        },
-    },
+  },
 }
