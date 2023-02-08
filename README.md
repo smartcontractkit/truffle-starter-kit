@@ -17,7 +17,7 @@
   - [Deploying Contracts](#deploying-contracts)
   - [Run a Local Network](#run-a-local-network)
   - [Using a Testnet or Live Network (like Mainnet or Polygon)](#using-a-testnet-or-live-network-like-mainnet-or-polygon)
-    - [Goerli Ethereum Testnet Setup](#goerli-ethereum-testnet-setup)
+    - [Sepolia Ethereum Testnet Setup](#sepolia-ethereum-testnet-setup)
 - [Test](#test)
 - [Interacting with Deployed Contracts](#interacting-with-deployed-contracts)
   - [Chainlink Price Feeds](#chainlink-price-feeds)
@@ -125,13 +125,13 @@ truffle migrate --network ganache
 
 To interact with a live or test network, you will need ETH and LINK token by following these steps:
 
-1. Get some Goerli Testnet ETH and LINK 
+1. Get some Sepolia Testnet ETH and LINK 
 
 Head over to the [Chainlink faucets](https://faucets.chain.link/) and get some ETH and LINK. Please follow [the chainlink documentation](https://docs.chain.link/docs/acquire-link/) if unfamiliar. 
 
 4. Create VRF V2 subscription
 
-Head over to [VRF Subscription Page](https://vrf.chain.link/goerli) and create the new subscription. Save your subscription ID and place it in your `helper-truffle-config.js` under `subId`.
+Head over to [VRF Subscription Page](https://vrf.chain.link/sepolia) and create the new subscription. Save your subscription ID and place it in your `helper-truffle-config.js` under `subId`.
 
 ### Truffle Dashboard
 
@@ -153,15 +153,15 @@ In some cases, you might want your transactions to be automatically signed. In w
 2. A private key
 3. ETH & LINK token (either testnet or real)
 
-Let's look at an example of setting these up using the Goerli testnet. 
+Let's look at an example of setting these up using the Sepolia testnet. 
 
-### Goerli Ethereum Testnet Setup
+### Sepolia Ethereum Testnet Setup
 
 First, we will need to set environment variables. We can do so by setting them in our `.env` file (create it if it's not there). You can also read more about [environment variables](https://www.twilio.com/blog/2017/01/how-to-set-environment-variables.html) from the linked twilio blog. You'll find a sample of what this file will look like in `.env.example`
 
 > IMPORTANT: MAKE SURE YOU'D DONT EXPOSE THE KEYS YOU PUT IN THIS `.env` FILE. By that, I mean don't push them to a public repo, and please try to keep them keys you use in development not associated with any real funds. 
 
-1. Set your `GOERLI_RPC_URL` [environment variable.](https://www.twilio.com/blog/2017/01/how-to-set-environment-variables.html)
+1. Set your `SEPOLIA_RPC_URL` [environment variable.](https://www.twilio.com/blog/2017/01/how-to-set-environment-variables.html)
 
 You can get one for free from [Infura](https://infura.io/), [Alchemy](https://www.alchemy.com/), or [Moralis](https://moralis.io/speedy-nodes/). This is your connection to the blockchain.
 
@@ -177,23 +177,23 @@ Don't commit and push any changes to .env files that may contain sensitive infor
 
 `.env` example:
 ```
-GOERLI_RPC_URL='https://goerli.infura.io/v3/asdfasdfasdfasdf'
+SEPOLIA_RPC_URL='https://sepolia.infura.io/v3/asdfasdfasdfasdf'
 PRIVATE_KEY='abcdef'
 ```
 `bash` example
 ```
-export GOERLI_RPC_URL='https://goerli.infura.io/v3/asdfasdfasdfasdf'
+export SEPOLIA_RPC_URL='https://sepolia.infura.io/v3/asdfasdfasdfasdf'
 export PRIVATE_KEY='abcdef'
 ```
 
 For other networks like mainnet and polygon, you can use different environment variables for your RPC URL and your private key. See the `truffle-config.js` to learn more. 
 
-Uncomment the `goerli` network in your `truffle-config`. You should now be all setup! You can run any command and just pass the `--network goerli` now!
+Uncomment the `sepolia` network in your `truffle-config`. You should now be all setup! You can run any command and just pass the `--network sepolia` now!
 
 To deploy all contracts:
 
 ```
-truffle migrate --network goerli
+truffle migrate --network sepolia
 ```
 
 # Test
@@ -252,7 +252,7 @@ You can deploy just the VRF Consumer with:
 truffle deploy --f 5 --to 5 --network <NETWORK>
 ```
 
-After deployment, you'll need to add your contract address to your subscription. Head over to [vrf.chain.link](https://vrf.chain.link/goerli/new) and add your consumer. 
+After deployment, you'll need to add your contract address to your subscription. Head over to [vrf.chain.link](https://vrf.chain.link/sepolia/new) and add your consumer. 
 
 Then, run the following:
 
@@ -268,7 +268,7 @@ The Keepers Consumer contract has one script, to check the upkeep. After deploym
 truffle exec scripts/checkUpkeep.js --network <NETWORK>
 ```
 
-To see everything in action, you'll want to set up a consumer at [keepers.chain.link](https://keepers.chain.link/goerli).
+To see everything in action, you'll want to set up a consumer at [keepers.chain.link](https://keepers.chain.link/sepolia).
 
 ## Verify on Etherscan
 
@@ -280,7 +280,7 @@ truffle run verify <CONTRACT> --network <NETWORK>
 example:
 
 ```
-truffle run verify PriceConsumerV3 --network goerli
+truffle run verify PriceConsumerV3 --network sepolia
 ```
 
 # Contributing
